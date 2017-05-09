@@ -1,6 +1,4 @@
-import pandas
 import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.neural_network import MLPClassifier
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
