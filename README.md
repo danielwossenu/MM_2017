@@ -10,7 +10,6 @@ The data for 2017 can be found here: https://www.kaggle.com/c/march-machine-lear
 
 * Python 2.7
 * numpy
-* pandas
 * sklearn
 
 ## Features used
@@ -20,16 +19,23 @@ I didn't get a chance to really create many features for this data set due to a 
 * Defensive Quotient
 * ELO Rating
 
-Information about offensive and defensive quotient: 
+#### Information about offensive and defensive quotient 
 
 http://a.espncdn.com/ncb/s/katzqa/010831.html
 
-Information about ELO Rating: 
+#### Information about ELO Rating: 
 
 https://en.wikipedia.org/wiki/Elo_rating_system
 
 https://fivethirtyeight.com/datalab/introducing-nfl-elo-ratings/
 
+
+## Future Work
+Put working in progress into usable methods
+
+Create a tournament visualizer
+
+*Open to collaboration to improve this project*
 
 
 
