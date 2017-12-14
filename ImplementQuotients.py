@@ -76,7 +76,7 @@ class FeatureEngineering:
             wteam = game[2]
             lteam= game[4]
             if wteam not in self.data[year]:
-                self.data[year][wteam] = {'schedule':[], 'season':[]}
+                self.data[year][wteam] = {'schedule':[], 'season':[], 'season_stats':{}}
 
             a = [lteam,1, game[3], game[5],game[-2],game[-1]] #to the winning team schedule, append [opponent #, 1(indicating a win),team score, opponent score,team ELO going into game, opponent ELO going into game]
             a = [int(x) for x in a]
@@ -84,7 +84,7 @@ class FeatureEngineering:
             self.data[year][wteam]['schedule'].append(a)
 
             if lteam not in self.data[year]:
-                self.data[year][lteam] = {'schedule': [], 'season':[]}
+                self.data[year][lteam] = {'schedule': [], 'season':[],'season_stats':{}}
             b = [wteam,0, game[5], game[3],game[-1],game[-2]] #to the losing team schedule, append [opponent #, 0(indicating a loss),team score, opponent score,team ELO going into game, opponent ELO going into game]
             b = [int(x) for x in b]
             # b.extend(game[21:14])
@@ -117,6 +117,8 @@ class FeatureEngineering:
                 # print team
                 self.data[year][team]['season'].append(offtot/float(len(sche)))
                 self.data[year][team]['season'].append(deftot / float(len(sche)))
+                self.data[year][team]['season_stats']['avg_pts_scored'] = offtot/float(len(sche))
+                self.data[year][team]['season_stats']['avg_pts_allowed'] = deftot/float(len(sche))
                 # print sche
                 # print [sum(x) for x in zip(*data[year][team]['schedule'])]
 
@@ -129,21 +131,31 @@ class FeatureEngineering:
                 reg_season_elo = 0
                 for game in sche:
                     opp = game[0]
-                    oppofftot += self.data[year][str(opp)]['season'][0]
-                    oppdeftot += self.data[year][str(opp)]['season'][1]
+                    # oppofftot += self.data[year][str(opp)]['season'][0]
+                    oppofftot += self.data[year][str(opp)]['season_stats']['avg_pts_scored']
+                    # oppdeftot += self.data[year][str(opp)]['season'][1]
+                    oppdeftot += self.data[year][str(opp)]['season_stats']['avg_pts_allowed']
                     reg_season_elo = game[-2]
                 # print team
                 # data[year][team]['season'].append(data[year][team]['season'][0]-(oppdeftot/float(len(sche))))
                 # data[year][team]['season'].append(data[year][team]['season'][1]-(oppofftot / float(len(sche))))
-                self.data[year][team]['season'].append(self.data[year][team]['season'][0] / (oppdeftot / float(len(sche))))
-                self.data[year][team]['season'].append(self.data[year][team]['season'][1]/(oppofftot / float(len(sche))))
-                self.data[year][team]['season'].append(reg_season_elo)
+                # self.data[year][team]['season'].append(self.data[year][team]['season'][0] / (oppdeftot / float(len(sche))))
+                # self.data[year][team]['season'].append(self.data[year][team]['season'][1]/(oppofftot / float(len(sche))))
+                # self.data[year][team]['season'].append(reg_season_elo)
+
+                self.data[year][team]['season_stats']['OQ'] = self.data[year][team]['season_stats']['avg_pts_scored'] - (oppdeftot / float(len(sche)))
+                self.data[year][team]['season_stats']['DQ'] = (oppofftot / float(len(sche))) - self.data[year][team]['season_stats']['avg_pts_allowed']
+                self.data[year][team]['season_stats']['OP'] = self.data[year][team]['season_stats']['avg_pts_scored'] / (oppdeftot / float(len(sche)))
+                self.data[year][team]['season_stats']['DS'] = self.data[year][team]['season_stats']['avg_pts_allowed']/(oppofftot / float(len(sche)))
+                self.data[year][team]['season_stats']['ASM'] = self.data[year][team]['season_stats']['OQ'] + self.data[year][team]['season_stats']['OQ']
+                self.data[year][team]['season_stats']['ELO'] = reg_season_elo
 
 
     def GetTrainingData(self,trainyearstart, trainyearend):
         # trainyearstart = 2003
         # trainyearend = 2013
         TS = GT.GetTourneySche_train(trainyearstart, trainyearend)
+        team_seeds = GT.Seedings()
         train_data = []
         train_labels=[]
         for game in TS:
@@ -151,16 +163,34 @@ class FeatureEngineering:
             team2 = game[1]
             trainyear = str(game[-1])
 
-            OP_team1 = self.data[trainyear][team1]['season'][2]
-            OP_team2 = self.data[trainyear][team2]['season'][2]
-            DS_team1 = self.data[trainyear][team1]['season'][3]
-            DS_team2 = self.data[trainyear][team2]['season'][3]
-            ELO_team1 = self.data[trainyear][team1]['season'][-1]
-            ELO_team2 = self.data[trainyear][team2]['season'][-1]
-            PtsPerGame_team1 = self.data[trainyear][team1]['season'][0]
-            PtsPerGame_team2 = self.data[trainyear][team2]['season'][0]
+            # OP_team1 = self.data[trainyear][team1]['season'][2]
+            # OP_team2 = self.data[trainyear][team2]['season'][2]
+            # DS_team1 = self.data[trainyear][team1]['season'][3]
+            # DS_team2 = self.data[trainyear][team2]['season'][3]
+            # ELO_team1 = self.data[trainyear][team1]['season'][-1]
+            # ELO_team2 = self.data[trainyear][team2]['season'][-1]
+            # PtsPerGame_team1 = self.data[trainyear][team1]['season'][0]
+            # PtsPerGame_team2 = self.data[trainyear][team2]['season'][0]
+
+            OP_team1 = self.data[trainyear][team1]['season_stats']['OP']
+            OP_team2 = self.data[trainyear][team2]['season_stats']['OP']
+            DS_team1 = self.data[trainyear][team1]['season_stats']['DS']
+            DS_team2 = self.data[trainyear][team2]['season_stats']['DS']
+            ELO_team1 = self.data[trainyear][team1]['season_stats']['ELO']
+            ELO_team2 = self.data[trainyear][team2]['season_stats']['ELO']
+            ASM_team1 = self.data[trainyear][team1]['season_stats']['ASM']
+            ASM_team2 = self.data[trainyear][team2]['season_stats']['ASM']
+            seed_team1 = team_seeds[trainyear][team1]
+            seed_team2 = team_seeds[trainyear][team2]
+            PtsPerGame_team1 = self.data[trainyear][team1]['season_stats']['avg_pts_scored']
+            PtsPerGame_team2 = self.data[trainyear][team2]['season_stats']['avg_pts_allowed']
             # train_data.append([(OP_team1+DS_team1)-(OP_team2+DS_team2), ELO_team1 - Elo_team2])
-            train_data.append([OP_team1, DS_team1, OP_team2, DS_team2, ELO_team1, ELO_team2])
+            # train_data.append([PtsPerGame_team1 * (OP_team1 + (DS_team2 - 1)) - PtsPerGame_team2 * (OP_team2 + (DS_team1 - 1)),ELO_team1 - ELO_team2])
+            # train_data.append([ASM_team1-ASM_team2,ELO_team1 - ELO_team2])
+            train_data.append([int(seed_team1)-int(seed_team2),ELO_team1 - ELO_team2,ASM_team1-ASM_team2])
+
+
+            # train_data.append([OP_team1, DS_team1, OP_team2, DS_team2, ELO_team1, ELO_team2])
             train_labels.append(game[-2])
         return np.array(train_data), np.array(train_labels)
 
@@ -171,6 +201,7 @@ class FeatureEngineering:
         TS = TSpara
         if TSpara ==None:
             TS = GT.GetTourneySche_test(testyear, None)
+        team_seeds = GT.Seedings()
         train_data = []
         train_labels = []
         for game in TS:
@@ -178,16 +209,25 @@ class FeatureEngineering:
             team2 = game[1]
             trainyear = str(testyear)
 
-            OP_team1 = self.data[trainyear][team1]['season'][2]
-            OP_team2 = self.data[trainyear][team2]['season'][2]
-            DS_team1 = self.data[trainyear][team1]['season'][3]
-            DS_team2 = self.data[trainyear][team2]['season'][3]
-            ELO_team1 = self.data[trainyear][team1]['season'][-1]
-            ELO_team2 = self.data[trainyear][team2]['season'][-1]
-            PtsPerGame_team1 = self.data[trainyear][team1]['season'][0]
-            PtsPerGame_team2 = self.data[trainyear][team2]['season'][0]
+            OP_team1 = self.data[trainyear][team1]['season_stats']['OP']
+            OP_team2 = self.data[trainyear][team2]['season_stats']['OP']
+            DS_team1 = self.data[trainyear][team1]['season_stats']['DS']
+            DS_team2 = self.data[trainyear][team2]['season_stats']['DS']
+            ELO_team1 = self.data[trainyear][team1]['season_stats']['ELO']
+            ELO_team2 = self.data[trainyear][team2]['season_stats']['ELO']
+            ASM_team1 = self.data[trainyear][team1]['season_stats']['ASM']
+            ASM_team2 = self.data[trainyear][team2]['season_stats']['ASM']
+            seed_team1 = team_seeds[trainyear][team1]
+            seed_team2 = team_seeds[trainyear][team2]
+            PtsPerGame_team1 = self.data[trainyear][team1]['season_stats']['avg_pts_scored']
+            PtsPerGame_team2 = self.data[trainyear][team2]['season_stats']['avg_pts_allowed']
+            # train_data.append([(OP_team1+DS_team1)-(OP_team2+DS_team2), ELO_team1 - Elo_team2])
             # train_data.append([PtsPerGame_team1 * (OP_team1 + (DS_team2 - 1)) - PtsPerGame_team2 * (OP_team2 + (DS_team1 - 1)),ELO_team1 - ELO_team2])
-            train_data.append([OP_team1, DS_team1, OP_team2, DS_team2, ELO_team1, ELO_team2])
+            # train_data.append([ASM_team1-ASM_team2,ELO_team1 - ELO_team2])
+            train_data.append([int(seed_team1) - int(seed_team2), ELO_team1 - ELO_team2, ASM_team1 - ASM_team2])
+
+
+
             if labels == True:
                 train_labels.append([game[-2]])
 

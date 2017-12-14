@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6cd0b297-d95b-4b37-aa6e-2331277ed85f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/New_Implement.py" />
+    <list default="true" id="6cd0b297-d95b-4b37-aa6e-2331277ed85f" name="Default" comment="changed training and test data output to be [diff in seed, diff in ELO, diff in ASM]. oh, also I implemented ASM(Adjusted Scoring Margin). Also added the websites for Offensive Quotient, Def. Quo., and ASM. Added a JPEG of a blank bracket. figured I could fill it in with openCV putText to create a printable bracket output with probabilities as a final output for the tournament">
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/ESPN.com_ NCB - Lunardi_ Box Score Banter.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/ESPN.com_ NCB - Lunardi_ Box Score Banter_files/boxscores.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/ESPN.com_ NCB - Lunardi_ Box Score Banter_files/h_story_02.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/ESPN.com_ NCB - Lunardi_ Box Score Banter_files/h_story_03.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/ESPN.com_ NCB - Lunardi_ Box Score Banter_files/s_back.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/ESPN.com_ NCB - Lunardi_ Box Score Banter_files/s_tile.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/ESPN.com_ NCB - Lunardi_ Time to brush up on 'ASM'.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/ESPN.com_ NCB - Lunardi_ Time to brush up on 'ASM'_files/boxscores.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/ESPN.com_ NCB - Lunardi_ Time to brush up on 'ASM'_files/h_story_02.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/ESPN.com_ NCB - Lunardi_ Time to brush up on 'ASM'_files/h_story_03.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/ESPN.com_ NCB - Lunardi_ Time to brush up on 'ASM'_files/s_back.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/ESPN.com_ NCB - Lunardi_ Time to brush up on 'ASM'_files/s_tile.gif" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/reference_sites/NCAA-Tournament-Printable-Bracket-2018.jpg" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/visualize_ASM_vs_ELO.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/ImplementQuotients.py" afterPath="$PROJECT_DIR$/ImplementQuotients.py" />
+      <change beforePath="$PROJECT_DIR$/New_Implement.py" afterPath="$PROJECT_DIR$/New_Implement.py" />
     </list>
     <ignored path="March Madness 2017.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,8 +40,8 @@
       <file leaf-file-name="Implement.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Implement.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1935">
-              <caret line="257" column="0" lean-forward="true" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+            <state relative-caret-position="919">
+              <caret line="257" column="0" lean-forward="false" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -38,8 +52,8 @@
       <file leaf-file-name="ImplementQuotients.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ImplementQuotients.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4095">
-              <caret line="216" column="0" lean-forward="true" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+            <state relative-caret-position="-355">
+              <caret line="203" column="34" lean-forward="false" selection-start-line="203" selection-start-column="34" selection-end-line="203" selection-end-column="34" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -47,32 +61,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegularSeasonDetailedResults.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RegularSeasonDetailedResults.csv">
+      <file leaf-file-name="visualize_ASM_vs_ELO.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/visualize_ASM_vs_ELO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RegularSeasonCompactResults.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RegularSeasonCompactResults.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TourneySeeds.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TourneySeeds.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="309">
+              <caret line="21" column="55" lean-forward="false" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -80,7 +76,7 @@
       <file leaf-file-name="GetTourney.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GetTourney.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1000">
+            <state relative-caret-position="663">
               <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -99,6 +95,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="TourneySeeds.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TourneySeeds.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="SeedingsCleaned.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SeedingsCleaned.csv">
           <provider selected="true" editor-type-id="text-editor">
@@ -112,7 +118,7 @@
       <file leaf-file-name="Bracket2017.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bracket2017.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
+            <state relative-caret-position="267">
               <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
               <folding />
             </state>
@@ -122,8 +128,20 @@
       <file leaf-file-name="New_Implement.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/New_Implement.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+            <state relative-caret-position="-357">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegularSeasonDetailedResults.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RegularSeasonDetailedResults.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -144,6 +162,7 @@
       <find>all_games</find>
       <find>elo_dict</find>
       <find>self.data.</find>
+      <find>seeds</find>
     </findStrings>
     <replaceStrings>
       <replace>self.data</replace>
@@ -159,8 +178,9 @@
         <option value="$PROJECT_DIR$/Bracket2017.py" />
         <option value="$PROJECT_DIR$/Implement.py" />
         <option value="$PROJECT_DIR$/GetTourney.py" />
-        <option value="$PROJECT_DIR$/ImplementQuotients.py" />
         <option value="$PROJECT_DIR$/New_Implement.py" />
+        <option value="$PROJECT_DIR$/visualize_ASM_vs_ELO.py" />
+        <option value="$PROJECT_DIR$/ImplementQuotients.py" />
       </list>
     </option>
   </component>
@@ -192,6 +212,11 @@
               <item name="March Madness 2017" type="b2602c69:ProjectViewProjectNode" />
               <item name="March Madness 2017" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="March Madness 2017" type="b2602c69:ProjectViewProjectNode" />
+              <item name="March Madness 2017" type="462c0819:PsiDirectoryNode" />
+              <item name="reference_sites" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -216,7 +241,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.New_Implement">
+  <component name="RunManager" selected="Python.visualize_ASM_vs_ELO">
     <configuration name="Bracket2017" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -230,24 +255,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="March Madness 2017" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Bracket2017.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="GetTourney" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="March Madness 2017" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/GetTourney.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -302,6 +309,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="March Madness 2017" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/New_Implement.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="visualize_ASM_vs_ELO" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="March Madness 2017" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/visualize_ASM_vs_ELO.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -443,18 +468,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.Implement" />
-      <item index="1" class="java.lang.String" itemvalue="Python.GetTourney" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Bracket2017" />
-      <item index="3" class="java.lang.String" itemvalue="Python.ImplementQuotients" />
-      <item index="4" class="java.lang.String" itemvalue="Python.New_Implement" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Bracket2017" />
+      <item index="2" class="java.lang.String" itemvalue="Python.ImplementQuotients" />
+      <item index="3" class="java.lang.String" itemvalue="Python.New_Implement" />
+      <item index="4" class="java.lang.String" itemvalue="Python.visualize_ASM_vs_ELO" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.New_Implement" />
-        <item index="1" class="java.lang.String" itemvalue="Python.ImplementQuotients" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Implement" />
-        <item index="3" class="java.lang.String" itemvalue="Python.Bracket2017" />
-        <item index="4" class="java.lang.String" itemvalue="Python.GetTourney" />
+        <item index="0" class="java.lang.String" itemvalue="Python.visualize_ASM_vs_ELO" />
+        <item index="1" class="java.lang.String" itemvalue="Python.New_Implement" />
+        <item index="2" class="java.lang.String" itemvalue="Python.ImplementQuotients" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Implement" />
+        <item index="4" class="java.lang.String" itemvalue="Python.Bracket2017" />
       </list>
     </recent_temporary>
   </component>
@@ -486,14 +511,20 @@
       <option name="project" value="LOCAL" />
       <updated>1513211304693</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="creating a feature engineering class and new_implement shows it's use to get training and test data. Need to update the functions to accept filepaths for all the CSVs">
+      <created>1513224162489</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1513224162489</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="5" y="4" width="1920" height="1030" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24933262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24933262" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -526,7 +557,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="removed unnecessary imports" />
     <MESSAGE value="adding comments and docstring" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding comments and docstring" />
+    <MESSAGE value="creating a feature engineering class and new_implement shows it's use to get training and test data. Need to update the functions to accept filepaths for all the CSVs" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating a feature engineering class and new_implement shows it's use to get training and test data. Need to update the functions to accept filepaths for all the CSVs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -547,104 +579,89 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/ImplementQuotients.py</url>
-          <line>157</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/Implement.py</url>
           <line>13</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GetTourney.py</url>
-          <line>43</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GetTourney.py</url>
-          <line>52</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/GetTourney.py</url>
-          <line>50</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ImplementQuotients.py</url>
-          <line>105</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ImplementQuotients.py</url>
-          <line>220</line>
+          <line>260</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ImplementQuotients.py</url>
-          <line>135</line>
+          <line>139</line>
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ImplementQuotients.py</url>
-          <line>153</line>
-          <option name="timeStamp" value="24" />
+          <url>file://$PROJECT_DIR$/New_Implement.py</url>
+          <line>36</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/New_Implement.py</url>
+          <line>25</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/visualize_ASM_vs_ELO.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ImplementQuotients.py</url>
-          <line>73</line>
-          <option name="timeStamp" value="25" />
+          <line>158</line>
+          <option name="timeStamp" value="33" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="26" />
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
       <expression>
+        <expression-string>np.mean(scaled,axis=0)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>scaled = preprocessing.scale(training_data[0])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>from sklearn import preprocessing</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.mean(training_data[0],axis=0)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>training_data</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.mean(training_data,axis=0)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>np.mean(training_data,axis=1)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>import numpy as np</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>data[year][team]['season'][0]/(oppdeftot/float(len(sche)))</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>(oppdeftot/float(len(sche)))</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>data[year][team]['season'][0]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>data[year][team]['season'][0]-(oppdeftot/float(len(sche)))</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>all_games[-1]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>all_games[10000]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>all_games[1000]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>all_games[100]</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>print Seeds</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
@@ -984,31 +1001,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TourneyDetailedResults.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SeedingsCleaned.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TourneySeeds.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TourneyCompactResults.csv">
+    <entry file="file://$PROJECT_DIR$/RegularSeasonCompactResults.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1024,7 +1017,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RegularSeasonCompactResults.csv">
+    <entry file="file://$PROJECT_DIR$/New_Implement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Bracket2017.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Implement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="919">
+          <caret line="257" column="0" lean-forward="false" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TourneyDetailedResults.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1032,27 +1053,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Implement.py">
+    <entry file="file://$PROJECT_DIR$/TourneyCompactResults.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1935">
-          <caret line="257" column="0" lean-forward="true" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Bracket2017.py">
+    <entry file="file://$PROJECT_DIR$/TourneySeeds.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        <state relative-caret-position="21">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GetTourney.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1000">
+        <state relative-caret-position="663">
           <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
@@ -1060,18 +1079,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/New_Implement.py">
+    <entry file="file://$PROJECT_DIR$/SeedingsCleaned.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualize_ASM_vs_ELO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="21" column="55" lean-forward="false" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ImplementQuotients.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4095">
-          <caret line="216" column="0" lean-forward="true" selection-start-line="216" selection-start-column="0" selection-end-line="216" selection-end-column="0" />
+        <state relative-caret-position="-355">
+          <caret line="203" column="34" lean-forward="false" selection-start-line="203" selection-start-column="34" selection-end-line="203" selection-end-column="34" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
