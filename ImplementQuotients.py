@@ -25,6 +25,10 @@ for game in filereader:
 
 
 #attaching ELO scores to the game results
+# loops through each game in the DetailedResults and
+# keeps track of ELO through each game
+# finally it has the end of reg season ELO for each team for each year
+# alos, verify ELO formula
 elo_dict={}
 for game in all_games:
     year = game[0]
@@ -71,14 +75,14 @@ for game in all_games:
     if wteam not in data[year]:
         data[year][wteam] = {'schedule':[], 'season':[]}
 
-    a = [lteam,1, game[3], game[5],game[-2],game[-1]]
+    a = [lteam,1, game[3], game[5],game[-2],game[-1]] #to the winning team schedule, append [opponent #, 1(indicating a win),team score, opponent score,team ELO going into game, opponent ELO going into game]
     a = [int(x) for x in a]
     # a.extend(game[8:21])
     data[year][wteam]['schedule'].append(a)
 
     if lteam not in data[year]:
         data[year][lteam] = {'schedule': [], 'season':[]}
-    b = [wteam,0, game[5], game[3],game[-1],game[-2]]
+    b = [wteam,0, game[5], game[3],game[-1],game[-2]] #to the losing team schedule, append [opponent #, 0(indicating a loss),team score, opponent score,team ELO going into game, opponent ELO going into game]
     b = [int(x) for x in b]
     # b.extend(game[21:14])
     # data[year][wteam]['schedule'].append([wteam,0, game[5]])
@@ -94,6 +98,8 @@ for game in all_games:
 #Defensive Suppresion(DS): if you're on average give up 75pts/ game and your opponents collectively on average score 100pts/game, you have .75 defensive suppression
 #OP: higher is better. if >1 then you are scoring more than you're oppenents usually allow
 #DS: lower is better. if >1 then you are allowing your oppenents to score more on you than they usually do
+# Season will be a list of [avg points/gm, avg points allowed/gm, OP, DS, ELO]
+# OP and DS calcs look to be weird. check them.
 years = data.keys()
 for year in years:
     teams = data[year].keys()

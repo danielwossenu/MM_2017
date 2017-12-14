@@ -2,6 +2,23 @@ import csv
 import numpy as np
 
 def Seedings():
+    """ This creates a dictionary where the keys are the years(as strings)
+    The value of each key is another dict where the keys are team numbers(as strings)
+    and the value is the seeding
+    example {'1986': {'1304': '9', '1323': '3', ........}}
+
+    This currently takes in SeedingsCleaned which is in format:
+    Season,Seed,Team
+    1985,1,1207
+
+    possibly change this use the Kaggle csv which has it in format:
+    Season,Seed,Team
+    1985,W01,1207
+
+    and take the seeding column(2nd) and string split to get the last 2 characters and cast to int
+     """
+
+
     Seeds = {}
     filereaderSeeds = csv.reader(open("SeedingsCleaned.csv"), delimiter=",")
     header = filereaderSeeds.next()
@@ -25,34 +42,35 @@ def RealSeedings():
 
 def GetTourneySche_train(startyear,endyear=None,games=64):
     TS = []
-    Seeds=Seedings()
-    filereaderSeeds = csv.reader(open("SeedingsCleaned.csv"), delimiter=",")
-    header = filereaderSeeds.next()
-    for seed in filereaderSeeds:
-        if seed[0] not in Seeds:
-            Seeds[seed[0]]={}
-        Seeds[seed[0]][seed[2]]=seed[1]
+    Seeds=Seedings() #Get seedings from  using above function
+    # these commented out lines immediately below might just be a repeat of the Seedings function
+    # filereaderSeeds = csv.reader(open("SeedingsCleaned.csv"), delimiter=",")
+    # header = filereaderSeeds.next()
+    # for seed in filereaderSeeds:
+    #     if seed[0] not in Seeds:
+    #         Seeds[seed[0]]={}
+    #     Seeds[seed[0]][seed[2]]=seed[1]
     switch = -1
 
     # while t < games:
-    if endyear==None:
+    if endyear==None: # no specified end year, get the tourney for just the start year
         endyear = startyear
     for year in range(startyear,endyear+1):
         t=0
         filereader = csv.reader(open("TourneyCompactResults.csv"), delimiter=",")
         header = filereader.next()
         for game in filereader:
-            if t < games:
+            if t < games: # change this to for loop with range(0,games)
                 if game[0] == str(year):
                     #switch is randomly 1 or -1 so that it randomized whether the 1st team wins or the 2nd team wins
                     # this creates equal classes for the model to train on
                     if switch == -1:
-                        a = Seeds[str(year)][game[2]]
-                        b = Seeds[str(year)][game[4]]
+                        a = Seeds[str(year)][game[2]] # Winning Team number
+                        b = Seeds[str(year)][game[4]] # Losing Team number
                         # TS.append([game[2], game[4],int(Seeds[str(year)][game[2]])-int(Seeds[str(year)][game[4]]), 0,year])
                         # this code below creates tourney data w/o seeds for each team
-                        TS.append([game[2], game[4], 0, year])
-                        TS.append([game[4], game[2], 1, year])
+                        TS.append([game[2], game[4], 0, year]) # append [winning team #, losing team #, 0(showing 1st team won), year]
+                        TS.append([game[4], game[2], 1, year]) # append [losing team #, winning team #, 1(showing 2nd team won), year]
                     if switch == 1:
                         # TS.append([game[4], game[2],int(Seeds[str(year)][game[4]])-int(Seeds[str(year)][game[2]]), 1, year])
                         # this code below creates tourney data w/o seeds for each team
