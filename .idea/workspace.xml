@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6cd0b297-d95b-4b37-aa6e-2331277ed85f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/vis_bracket2.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/reference_sites/blank_bracket.png" afterPath="$PROJECT_DIR$/reference_sites/blank_bracket.png" />
-      <change beforePath="$PROJECT_DIR$/vis_bracket.py" afterPath="$PROJECT_DIR$/vis_bracket.py" />
+      <change beforePath="$PROJECT_DIR$/vis_bracket2.py" afterPath="$PROJECT_DIR$/vis_bracket2.py" />
     </list>
     <ignored path="March Madness 2017.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -73,7 +71,7 @@
       <file leaf-file-name="TourneySeeds.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TourneySeeds.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
+            <state relative-caret-position="-40726">
               <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
               <folding />
             </state>
@@ -83,8 +81,8 @@
       <file leaf-file-name="TourneySlots.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TourneySlots.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-34055">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="119">
+              <caret line="2048" column="5" lean-forward="true" selection-start-line="2048" selection-start-column="5" selection-end-line="2048" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -93,7 +91,7 @@
       <file leaf-file-name="Bracket2017.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Bracket2017.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3717">
+            <state relative-caret-position="254">
               <caret line="12" column="29" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="32" />
               <folding />
             </state>
@@ -113,8 +111,8 @@
       <file leaf-file-name="vis_bracket2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vis_bracket2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+            <state relative-caret-position="293">
+              <caret line="95" column="15" lean-forward="true" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -523,7 +521,21 @@
       <option name="project" value="LOCAL" />
       <updated>1513358991404</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="vis_bracket2 is putting almost everything in the right places">
+      <created>1513370679005</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1513370679005</updated>
+    </task>
+    <task id="LOCAL-00007" summary="vis_bracket2 works for all games except for the 2 finalists, the champion, and the weird 1st four games.">
+      <created>1513373513561</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1513373513561</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -566,7 +578,9 @@
     <MESSAGE value="creating a feature engineering class and new_implement shows it's use to get training and test data. Need to update the functions to accept filepaths for all the CSVs" />
     <MESSAGE value="changed training and test data output to be [diff in seed, diff in ELO, diff in ASM]. oh, also I implemented ASM(Adjusted Scoring Margin). Also added the websites for Offensive Quotient, Def. Quo., and ASM. Added a JPEG of a blank bracket. figured I could fill it in with openCV putText to create a printable bracket output with probabilities as a final output for the tournament" />
     <MESSAGE value="working on bracket visualization. the first round is in progress" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on bracket visualization. the first round is in progress" />
+    <MESSAGE value="vis_bracket2 is putting almost everything in the right places" />
+    <MESSAGE value="vis_bracket2 works for all games except for the 2 finalists, the champion, and the weird 1st four games." />
+    <option name="LAST_COMMIT_MESSAGE" value="vis_bracket2 works for all games except for the 2 finalists, the champion, and the weird 1st four games." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -638,11 +652,16 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/vis_bracket2.py</url>
-          <line>54</line>
+          <line>56</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/vis_bracket2.py</url>
+          <line>8</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="40" />
+      <option name="time" value="43" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1044,14 +1063,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TourneySeeds.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Implement.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1059,14 +1070,6 @@
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Bracket2017.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3717">
-          <caret line="12" column="29" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1088,14 +1091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TourneySlots.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34055">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vis_bracket.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
@@ -1104,10 +1099,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Bracket2017.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="12" column="29" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="17" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TourneySeeds.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40726">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TourneySlots.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="2048" column="5" lean-forward="true" selection-start-line="2048" selection-start-column="5" selection-end-line="2048" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/vis_bracket2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+        <state relative-caret-position="293">
+          <caret line="95" column="15" lean-forward="true" selection-start-line="95" selection-start-column="15" selection-end-line="95" selection-end-column="15" />
           <folding />
         </state>
       </provider>

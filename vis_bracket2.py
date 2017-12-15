@@ -76,8 +76,30 @@ for i,this_round in enumerate(rounds):
             text_for_pic = teams[final['2017'][seed]]
             cv2.putText(bracket, text_for_pic,(region[0], start_y), font, 0.4,(255, 0, 0), 1)
             start_y+=region[2]
-# cv2.putText(bracket, text_for_pic,(85,50+37), font, 0.4,(0, 255, 0), 1)
+
+# cv2.putText(bracket, 'Providence/Rhode Island',(740, 1022+20), font, 0.4,(255, 0, 0), 1)
+playins = [['W11a','W11b'],['W16a','W16b'],['Y16a','Y16b'],['Z11a','Z11b']]
+playin_y = 1022
+for playin in playins:
+
+    text_for_pic = teams[final['2017'][playin[0]]]+"/"+teams[final['2017'][playin[1]]]
+    cv2.putText(bracket, text_for_pic, (740, playin_y), font, 0.4, (255, 0, 0), 1)
+    playin_y+=20
 # cv2.putText(bracket, text_for_pic,(85,50+37+37), font, 0.4,(0, 0, 255), 1)
+
+# final3 = ['R5WX','R5YZ','R6CH']
+# # final3_y =
+# cv2.putText(bracket, 'CHAMPS', (780, 495+135), font, 0.4, (255, 0, 0), 1)
+
+
+final3s = ['R5WX','R6CH','R5YZ']
+final3s_y = 495
+for final3 in final3s:
+
+    text_for_pic = teams[final['2017'][final3]]
+    cv2.putText(bracket, text_for_pic, (780, final3s_y), font, 0.4, (255, 0, 0), 1)
+    final3s_y+=140
+
 
 cv2.imshow('bracket', cv2.resize(bracket,None,fx=0.8,fy=0.8))
 # cv2.imshow('bracket', bracket)
