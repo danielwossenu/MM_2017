@@ -24,20 +24,25 @@ bracket = cv2.imread('reference_sites/blank_bracket.png')
 font = cv2.FONT_HERSHEY_SIMPLEX
 text_for_pic = "University of Florida"
 # (x,y,y_step size, number of steps)
-R1W = (85,49,37,16)
-R2W = (230,65,74,8)
-R3W = (360,100,148,4)
-R4W = (485,180,290,2)
-R5W = (610,320,0,1)
+R1W = [85,49,37,16]
+R2W = [230,65,74,8]
+R3W = [360,100,148,4]
+R4W = [485,180,290,2]
+R5W = [610,320,0,1]
 
-RW_multiply = (1,1,1,1)
-RW_change = (0,0,0,0)
-RX_multiply = (1,1,1,1)
-RX_change = (0,620,0,0)
-RY_multiply = (-1,1,1,1)
-RY_change = (bracket.shape[-1]-137,0,0,0)
-RZ_multiply = (-1,1,1,1)
-RZ_change = (bracket.shape[-1]-137,620,0,0)
+RW_multiply = [1,1,1,1]
+RW_change = [0,0,0,0]
+RX_multiply = [1,1,1,1]
+RX_change = [0,620,0,0]
+RY_multiply = [-1,1,1,1]
+RY_change = [bracket.shape[1]-137,0,0,0]
+RZ_multiply = [-1,1,1,1]
+RZ_change = [bracket.shape[1]-137,620,0,0]
+
+rounds = [R1W,R2W,R3W,R4W,R5W]
+region_multiply = [RW_multiply,RX_multiply,RY_multiply,RZ_multiply]
+region_change = [RW_change,RX_change,RY_change,RZ_change]
+
 # use this for list element wise multiplication and addition
 # [a*b for a,b in zip(lista,listb)]
 
@@ -45,21 +50,26 @@ first_round = [1,16,8,9,5,12,4,13,6,11,3,14,7,10,2,15]
 
 # textsize = cv2.getTextSize(text_for_pic,font,0.45,1)
 bracket_text_loc = {}
-region = R1W
-start_y = region[1]
-start_y += 620
 
-for i in range(0,region[3]):
-    seed = first_round[i]
-    if seed < 10:
-        seed = '0'+str(seed)
-    else:
-        seed = str(seed)
-    seed = 'W'+seed
-    bracket_text_loc[seed] = (region[0],start_y)
-    text_for_pic = teams[final['2017'][seed]]
-    cv2.putText(bracket, text_for_pic,(bracket.shape[1]-1*region[0]-137, start_y), font, 0.4,(255, 0, 0), 1)
-    start_y+=region[2]
+for this_round in rounds:
+    for i,mult in enumerate(region_multiply):
+        region_m = [a*b for a,b in zip(this_round,mult)]
+        region_mc = [a+b for a,b in zip(region_m,region_change[i])]
+
+        region = region_mc
+        start_y = region[1]
+
+        for i in range(0,region[3]):
+            seed = first_round[i]
+            if seed < 10:
+                seed = '0'+str(seed)
+            else:
+                seed = str(seed)
+            seed = 'W'+seed
+            bracket_text_loc[seed] = (region[0],start_y)
+            text_for_pic = teams[final['2017'][seed]]
+            cv2.putText(bracket, text_for_pic,(region[0], start_y), font, 0.4,(255, 0, 0), 1)
+            start_y+=region[2]
 # cv2.putText(bracket, text_for_pic,(85,50+37), font, 0.4,(0, 255, 0), 1)
 # cv2.putText(bracket, text_for_pic,(85,50+37+37), font, 0.4,(0, 0, 255), 1)
 
