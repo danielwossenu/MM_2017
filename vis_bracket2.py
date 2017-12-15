@@ -40,6 +40,8 @@ RZ_multiply = [-1,1,1,1]
 RZ_change = [bracket.shape[1]-137,620,0,0]
 
 rounds = [R1W,R2W,R3W,R4W,R5W]
+rounds_string = ['','R1','R2','R3','R4']
+regions_string = ['W','X','Y','Z']
 region_multiply = [RW_multiply,RX_multiply,RY_multiply,RZ_multiply]
 region_change = [RW_change,RX_change,RY_change,RZ_change]
 
@@ -51,21 +53,25 @@ first_round = [1,16,8,9,5,12,4,13,6,11,3,14,7,10,2,15]
 # textsize = cv2.getTextSize(text_for_pic,font,0.45,1)
 bracket_text_loc = {}
 
-for this_round in rounds:
-    for i,mult in enumerate(region_multiply):
+for i,this_round in enumerate(rounds):
+    for j,mult in enumerate(region_multiply):
         region_m = [a*b for a,b in zip(this_round,mult)]
-        region_mc = [a+b for a,b in zip(region_m,region_change[i])]
+        region_mc = [a+b for a,b in zip(region_m,region_change[j])]
 
         region = region_mc
         start_y = region[1]
 
-        for i in range(0,region[3]):
-            seed = first_round[i]
-            if seed < 10:
-                seed = '0'+str(seed)
+        for k in range(0,region[3]):
+            if rounds_string[i] == '':
+                seed = first_round[k]
+                if seed < 10:
+                    seed = '0'+str(seed)
+                else:
+                    seed = str(seed)
+
             else:
-                seed = str(seed)
-            seed = 'W'+seed
+                seed = str(k+1)
+            seed = rounds_string[i]+regions_string[j]+seed
             bracket_text_loc[seed] = (region[0],start_y)
             text_for_pic = teams[final['2017'][seed]]
             cv2.putText(bracket, text_for_pic,(region[0], start_y), font, 0.4,(255, 0, 0), 1)
@@ -73,7 +79,7 @@ for this_round in rounds:
 # cv2.putText(bracket, text_for_pic,(85,50+37), font, 0.4,(0, 255, 0), 1)
 # cv2.putText(bracket, text_for_pic,(85,50+37+37), font, 0.4,(0, 0, 255), 1)
 
-cv2.imshow('bracket', cv2.resize(bracket,None,fx=0.5,fy=0.5))
+cv2.imshow('bracket', cv2.resize(bracket,None,fx=0.8,fy=0.8))
 # cv2.imshow('bracket', bracket)
 cv2.waitKey(0)
 
