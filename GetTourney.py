@@ -1,31 +1,41 @@
 import csv
 import numpy as np
 
-def Seedings():
+def Seedings(seedings_file="TourneySeeds.csv"):
     """ This creates a dictionary where the keys are the years(as strings)
     The value of each key is another dict where the keys are team numbers(as strings)
     and the value is the seeding
     example {'1986': {'1304': '9', '1323': '3', ........}}
 
     This currently takes in SeedingsCleaned which is in format:
-    Season,Seed,Team
-    1985,1,1207
 
-    possibly change this use the Kaggle csv which has it in format:
     Season,Seed,Team
     1985,W01,1207
+    1985,W02,1388
+    ...
 
-    and take the seeding column(2nd) and string split to get the last 2 characters and cast to int
      """
 
 
+    # Seeds = {}
+    # filereaderSeeds = csv.reader(open("SeedingsCleaned.csv"), delimiter=",")
+    # header = filereaderSeeds.next()
+    # for seed in filereaderSeeds:
+    #     if seed[0] not in Seeds:
+    #         Seeds[seed[0]] = {}
+    #     Seeds[seed[0]][seed[2]] = seed[1]
+    # return Seeds
+
     Seeds = {}
-    filereaderSeeds = csv.reader(open("SeedingsCleaned.csv"), delimiter=",")
+    filereaderSeeds = csv.reader(open(seedings_file), delimiter=",")
     header = filereaderSeeds.next()
     for seed in filereaderSeeds:
         if seed[0] not in Seeds:
             Seeds[seed[0]] = {}
-        Seeds[seed[0]][seed[2]] = seed[1]
+        if len(seed[1]) == 4:
+            Seeds[seed[0]][seed[2]] = seed[1][1:3]
+        else:
+            Seeds[seed[0]][seed[2]] = str(int(seed[1][1:3]))
     return Seeds
 
 

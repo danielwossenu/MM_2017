@@ -10,11 +10,12 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LogisticRegression
 import csv
 import GetTourney as GT
+import bracket_visualizer
 
 class FeatureEngineering:
-    def __init__(self):
+    def __init__(self, reg_season_detailed_results_file = "RegularSeasonDetailedResults.csv"):
         self.data = {}
-        filereader = csv.reader(open("RegularSeasonDetailedResults.csv"), delimiter=",")
+        filereader = csv.reader(open(reg_season_detailed_results_file), delimiter=",")
         header = filereader.next()
 
         self.all_games = []
@@ -255,22 +256,22 @@ def Test(model, test_x, prob=False):
     return prediction
 
 
-if False:
+if __name__ == '__main__':
     FE = FeatureEngineering()
     FE.create_features()
     train_x, train_y = FE.GetTrainingData(2015,2016)
     test_x, test_y = FE.GetTestData(2016)
-    for x in range(2003,2015):
-        max_n = min((2016-x)*64*2/5,100)
-        train_x, train_y = FE.GetTrainingData(x, 2016)
-        KNN = KNeighborsClassifier(n_neighbors=40,weights='distance', p=1)
-        parameters = {'n_neighbors': range(1, max_n), 'weights': ['uniform', 'distance'], 'p':[1,2]}
-        KNN = model_selection.GridSearchCV(KNN, parameters, n_jobs=1, cv=5)
-        KNN.fit(train_x,train_y)
-        print x
-        print KNN.best_score_
-        KNN = KNN.best_estimator_
-        print KNN
+    # for x in range(2003,2015):
+    #     max_n = min((2016-x)*64*2/5,100)
+    #     train_x, train_y = FE.GetTrainingData(x, 2016)
+    #     KNN = KNeighborsClassifier(n_neighbors=40,weights='distance', p=1)
+    #     parameters = {'n_neighbors': range(1, max_n), 'weights': ['uniform', 'distance'], 'p':[1,2]}
+    #     KNN = model_selection.GridSearchCV(KNN, parameters, n_jobs=1, cv=5)
+    #     KNN.fit(train_x,train_y)
+    #     print x
+    #     print KNN.best_score_
+    #     KNN = KNN.best_estimator_
+    #     print KNN
 
     model = Train(train_x,train_y)
     # print Test(model, test_x, prob=True)
@@ -301,7 +302,7 @@ if False:
                 seeds[str(year)][game[0]] = '1344'
             if game[0] == 'W16':
                 # 1219=MT. St. Mary(High Point)  1309=New Orleans
-                seeds[str(year)][game[0]] = '1219'
+                seeds[str(year)][game[0]] = '1291'
             if game[0] == 'Y16':
                 # 1300=NC Central  1413=UC Davis
                 seeds[str(year)][game[0]] = '1300'
@@ -319,6 +320,8 @@ if False:
                     winners[teams[winner[0]]] = 1
         print n
         print seeds
+
+    bracket_visualizer.visualize_bracket(seeds['2017'])
 
     print_wins=[]
     for  team in winners.keys():

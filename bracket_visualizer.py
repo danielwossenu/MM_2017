@@ -2,10 +2,12 @@ import cv2
 import datetime
 import GetTourney
 
-def visualize_bracket(bracket_dict, save=False, visualize=True):
+def visualize_bracket(bracket_dict, save=False, visualize=True,bracket_file='reference_sites/blank_bracket.png'):
+    """take in a dictionary of which team goes in each tourney slot and visualizes and/or saves an image of a filled out bracket
+    example bracket_dict input {'2017': {'Y02': '1210'},"""
     now = datetime.datetime.now()
 
-    bracket_img = cv2.imread('reference_sites/blank_bracket.png')
+    bracket_img = cv2.imread(bracket_file)
     teams = GetTourney.GetTeams()
 
     font = cv2.FONT_HERSHEY_SIMPLEX
@@ -39,6 +41,15 @@ def visualize_bracket(bracket_dict, save=False, visualize=True):
 
     # textsize = cv2.getTextSize(text_for_pic,font,0.45,1)
     bracket_text_loc = {}
+
+    all_bracket_slots = ['Z11a', 'Z11b', 'R6CH', 'Z08', 'R3Z2', 'R3Z1', 'R1Z8', 'X11', 'R1Z1', 'R1Z3', 'R1Z2', 'R1Z5', 'R1Z4', 'R1Z7', 'R1Z6', 'X13', 'X10', 'R4Y1', 'R5YZ', 'R1X3', 'Z06', 'X16', 'R2X2', 'R3W2', 'R2X3', 'R4W1', 'Z05', 'R1Y1', 'R1Y2', 'R1Y3', 'R1Y4', 'R1Y5', 'R1Y6', 'R1Y7', 'Y15', 'Y14', 'Y16', 'Y11', 'Y10', 'Y13', 'Y12', 'R4Z1', 'W16', 'W15', 'W14', 'W13', 'W12', 'W11', 'W10', 'R2Z4', 'R2Z2', 'R2Z3', 'R2Z1', 'R1X6', 'Y02', 'Y03', 'Y01', 'Y06', 'Y07', 'Y04', 'Y05', 'Z01', 'R2X1', 'Y08', 'Y09', 'R2X4', 'Z04', 'Z07', 'Y16a', 'R1Y8', 'R1X2', 'R1X1', 'X08', 'R1X7', 'Y16b', 'R1X5', 'R1X4', 'X03', 'X02', 'X01', 'R1X8', 'X07', 'X06', 'Z03', 'X04', 'R1W2', 'W08', 'W09', 'R2W3', 'R2W2', 'W04', 'W05', 'W06', 'W07', 'Z10', 'W01', 'W02', 'W03', 'Z16', 'R3X2', 'R3Y2', 'X05', 'R3Y1', 'Z02', 'Z14', 'Z11', 'R2W4', 'R2Y3', 'R2Y2', 'R2Y1', 'Z15', 'Z12', 'Z13', 'Z09', 'R2Y4', 'R3W1', 'W16b', 'R2W1', 'X12', 'W16a', 'X14', 'X15', 'X09', 'W11b', 'W11a', 'R5WX', 'R4X1', 'R3X1', 'R1W3', 'R1W1', 'R1W6', 'R1W7', 'R1W4', 'R1W5', 'R1W8']
+    missing_slots = []
+    for slot in all_bracket_slots:
+        if slot not in bracket_dict:
+            missing_slots.append(slot)
+
+    if len(missing_slots) != 0:
+        raise ValueError('missing the following slots from bracket:'+str(missing_slots)+".\n If you are visualizing a bracket from a year without the first four games, added them to your dict with the value of a blank string")
 
     for i,this_round in enumerate(rounds):
         for j,mult in enumerate(region_multiply):
