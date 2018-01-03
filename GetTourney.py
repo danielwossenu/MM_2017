@@ -128,6 +128,50 @@ def GetTourneySche_test(startyear,endyear=None,games=64):
                     t+=1
     return TS
 
+
+def GetRegSche_train(startyear,endyear=None,games=64):
+    TS = []
+    Seeds=Seedings() #Get seedings from  using above function
+    # these commented out lines immediately below might just be a repeat of the Seedings function
+    # filereaderSeeds = csv.reader(open("SeedingsCleaned.csv"), delimiter=",")
+    # header = filereaderSeeds.next()
+    # for seed in filereaderSeeds:
+    #     if seed[0] not in Seeds:
+    #         Seeds[seed[0]]={}
+    #     Seeds[seed[0]][seed[2]]=seed[1]
+    switch = -1
+
+    # while t < games:
+    if endyear==None: # no specified end year, get the tourney for just the start year
+        endyear = startyear
+    for year in range(startyear,endyear+1):
+        t=0
+        filereader = csv.reader(open("RegularSeasonCompactResults.csv"), delimiter=",")
+        header = filereader.next()
+        for game in filereader:
+            if t < games: # change this to for loop with range(0,games)
+                if game[0] == str(year):
+                    #switch is randomly 1 or -1 so that it randomized whether the 1st team wins or the 2nd team wins
+                    # this creates equal classes for the model to train on
+                    if switch == -1:
+                        # a = Seeds[str(year)][game[2]] # Winning Team number
+                        # b = Seeds[str(year)][game[4]] # Losing Team number
+                        # TS.append([game[2], game[4],int(Seeds[str(year)][game[2]])-int(Seeds[str(year)][game[4]]), 0,year])
+                        # this code below creates tourney data w/o seeds for each team
+                        TS.append([game[2], game[4], 0, year]) # append [winning team #, losing team #, 0(showing 1st team won), year]
+                        TS.append([game[4], game[2], 1, year]) # append [losing team #, winning team #, 1(showing 2nd team won), year]
+                    if switch == 1:
+                        # TS.append([game[4], game[2],int(Seeds[str(year)][game[4]])-int(Seeds[str(year)][game[2]]), 1, year])
+                        # this code below creates tourney data w/o seeds for each team
+                        TS.append([game[4], game[2], 1, year])
+                        TS.append([game[2], game[4], 0, year])
+                    switch *= np.random.choice([-1,1])
+                    t+=1
+    return TS
+
+
+
+
 def GetSlots(year):
     Slots=[]
     filereaderSlots = csv.reader(open("TourneySlots.csv"), delimiter=",")

@@ -21,5 +21,6 @@ if __name__ == '__main__':
 
     plt.plot(x_train[y_train==0,0],x_train[y_train==0,1],'bo')
     # plt.plot(x_train[y_train==1,0],x_train[y_train==1,1],'ro')
+    # plt.plot(x_train[y_train==1,0],x_train[y_train==1,1],'ro')
     plt.show()
 

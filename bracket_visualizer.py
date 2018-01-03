@@ -2,7 +2,7 @@ import cv2
 import datetime
 import GetTourney
 
-def visualize_bracket(bracket_dict, save=False, visualize=True,bracket_file='reference_sites/blank_bracket.png'):
+def visualize_bracket(bracket_dict, save=False, visualize=True,header=True,bracket_file='reference_sites/blank_bracket.png'):
     """take in a dictionary of which team goes in each tourney slot and visualizes and/or saves an image of a filled out bracket
     example bracket_dict input {'2017': {'Y02': '1210'},"""
     now = datetime.datetime.now()
@@ -98,11 +98,12 @@ def visualize_bracket(bracket_dict, save=False, visualize=True,bracket_file='ref
         cv2.putText(bracket_img, text_for_pic, (780, final3s_y), font, 0.4, (255, 0, 0), 1)
         final3s_y+=140
 
-    if now.minute < 10:
-        time_date = "Date: "+str(now.month)+"/"+str(now.day)+"/"+str(now.year)+"     Time :"+str(now.hour)+":"+"0"+str(now.minute)+":"+str(now.second)
-    else:
-        time_date = "Date: "+str(now.month)+"/"+str(now.day)+"/"+str(now.year)+"     Time :"+str(now.hour)+":"+str(now.minute)+":"+str(now.second)
-    cv2.putText(bracket_img, time_date, (590, 49), font, 0.8, (255, 0, 0), 1)
+    if header:
+        if now.minute < 10:
+            time_date = "Date: "+str(now.month)+"/"+str(now.day)+"/"+str(now.year)+"     Time :"+str(now.hour)+":"+"0"+str(now.minute)+":"+str(now.second)
+        else:
+            time_date = "Date: "+str(now.month)+"/"+str(now.day)+"/"+str(now.year)+"     Time :"+str(now.hour)+":"+str(now.minute)+":"+str(now.second)
+        cv2.putText(bracket_img, time_date, (590, 49), font, 0.8, (255, 0, 0), 1)
 
     if save:
         if now.minute < 10:

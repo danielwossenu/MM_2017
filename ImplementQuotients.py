@@ -143,6 +143,50 @@ class FeatureEngineering:
                 # self.data[year][team]['season'].append(self.data[year][team]['season'][0] / (oppdeftot / float(len(sche))))
                 # self.data[year][team]['season'].append(self.data[year][team]['season'][1]/(oppofftot / float(len(sche))))
                 # self.data[year][team]['season'].append(reg_season_elo)
+                RPI_dict = {}
+                for year in years:
+                    if year not in RPI_dict:
+                        RPI_dict[year] = {}
+                    teams = self.data[year].keys()
+                    for team in teams:
+                        if team not in RPI_dict[year]:
+                            RPI_dict[year][team] = {'WP':None,'OWP_list':[],'OOWP_list':[]}
+                        sche = self.data[year][team]['schedule']
+                        # print len(sche)
+                        num_wins = 0
+                        num_losses = 0
+                        for game in sche:
+                            if game[1] == 1:
+                                num_wins += 1
+                            else:
+                                num_losses += 1
+
+                            op_sche = self.data[year][str(game[0])]['schedule']
+                            op_num_wins = 0
+                            op_num_losses = 0
+                            for op_game in op_sche:
+                                if str(op_game[0]) != team:
+                                    if op_game[1] == 1:
+                                        op_num_wins += 1
+                                    else:
+                                        op_num_losses += 1
+                            RPI_dict[year][team]['OWP_list'].append(op_num_wins/float(op_num_wins+op_num_losses))
+                        RPI_dict[year][team]['WP'] = num_wins / float(num_wins + num_losses)
+                        RPI_dict[year][team]['OWP'] = sum(RPI_dict[year][team]['OWP_list'])/len(RPI_dict[year][team]['OWP_list'])
+
+                for year in years:
+                    teams = self.data[year].keys()
+                    for team in teams:
+                        sche = self.data[year][team]['schedule']
+                        for game in sche:
+                            RPI_dict[year][team]['OOWP_list'].append(RPI_dict[year][game[0]]['OWP'])
+
+                RPI_dict[year][team]['OOWP'] = sum(RPI_dict[year][team]['OOWP_list'])/len(RPI_dict[year][team]['OOWP_list'])
+
+                        # print team
+                        # RPI_dict[year]['win_perc'] =
+
+
 
                 self.data[year][team]['season_stats']['OQ'] = self.data[year][team]['season_stats']['avg_pts_scored'] - (oppdeftot / float(len(sche)))
                 self.data[year][team]['season_stats']['DQ'] = (oppofftot / float(len(sche))) - self.data[year][team]['season_stats']['avg_pts_allowed']
@@ -261,6 +305,10 @@ if __name__ == '__main__':
     FE.create_features()
     train_x, train_y = FE.GetTrainingData(2015,2016)
     test_x, test_y = FE.GetTestData(2016)
+    dt = DecisionTreeClassifier()
+    dt.fit(train_x,train_y)
+    print 'features'
+    print dt.feature_importances_
     # for x in range(2003,2015):
     #     max_n = min((2016-x)*64*2/5,100)
     #     train_x, train_y = FE.GetTrainingData(x, 2016)
