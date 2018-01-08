@@ -19,7 +19,7 @@ if __name__ == '__main__':
     x_train,y_train = FE.GetTrainingData(2012,2014)
     x_test, y_test = FE.GetTestData(2015)
 
-    plt.plot(x_train[y_train==0,0],x_train[y_train==0,1],'bo')
+    plt.plot(x_train[y_train==0,0],x_train[y_train==0,3],'bo')
     # plt.plot(x_train[y_train==1,0],x_train[y_train==1,1],'ro')
     # plt.plot(x_train[y_train==1,0],x_train[y_train==1,1],'ro')
     plt.show()

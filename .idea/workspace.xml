@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6cd0b297-d95b-4b37-aa6e-2331277ed85f" name="Default" comment="">
+    <list default="true" id="6cd0b297-d95b-4b37-aa6e-2331277ed85f" name="Default" comment="added gridsearch method to implementQuotients">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/GetTourney.py" afterPath="$PROJECT_DIR$/GetTourney.py" />
       <change beforePath="$PROJECT_DIR$/ImplementQuotients.py" afterPath="$PROJECT_DIR$/ImplementQuotients.py" />
       <change beforePath="$PROJECT_DIR$/bracket_visualizer.py" afterPath="$PROJECT_DIR$/bracket_visualizer.py" />
       <change beforePath="$PROJECT_DIR$/visualize_ASM_vs_ELO.py" afterPath="$PROJECT_DIR$/visualize_ASM_vs_ELO.py" />
@@ -28,8 +27,8 @@
       <file leaf-file-name="ImplementQuotients.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImplementQuotients.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="604">
-              <caret line="174" column="44" lean-forward="true" selection-start-line="174" selection-start-column="44" selection-end-line="174" selection-end-column="44" />
+            <state relative-caret-position="2616">
+              <caret line="354" column="41" lean-forward="false" selection-start-line="354" selection-start-column="41" selection-end-line="354" selection-end-column="41" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -40,8 +39,8 @@
       <file leaf-file-name="visualize_ASM_vs_ELO.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/visualize_ASM_vs_ELO.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="210">
+              <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -50,8 +49,8 @@
       <file leaf-file-name="Teams.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Teams.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="351" column="13" lean-forward="true" selection-start-line="351" selection-start-column="13" selection-end-line="351" selection-end-column="13" />
+            <state relative-caret-position="7371">
+              <caret line="351" column="13" lean-forward="false" selection-start-line="351" selection-start-column="13" selection-end-line="351" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -60,8 +59,8 @@
       <file leaf-file-name="trying_CF.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trying_CF.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="22" column="61" lean-forward="true" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
+            <state relative-caret-position="462">
+              <caret line="22" column="61" lean-forward="false" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
               <folding>
                 <element signature="e#33#51#0" expanded="true" />
               </folding>
@@ -99,12 +98,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bracket_visualizer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="bracket_visualizer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bracket_visualizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7479">
-              <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
-              <folding />
+            <state relative-caret-position="-7002">
+              <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,11 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GetTourney.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GetTourney.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GetTourney.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-492">
-              <caret line="156" column="24" lean-forward="true" selection-start-line="156" selection-start-column="26" selection-end-line="157" selection-end-column="76" />
+            <state relative-caret-position="3255">
+              <caret line="156" column="24" lean-forward="false" selection-start-line="156" selection-start-column="26" selection-end-line="157" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -157,9 +158,10 @@
       <find>.csv</find>
       <find>2017</find>
       <find>visu</find>
-      <find>train</find>
       <find>switch</find>
+      <find>train</find>
       <find>gettrain</find>
+      <find>KNN</find>
     </findStrings>
     <replaceStrings>
       <replace>self.data</replace>
@@ -170,6 +172,7 @@
       <replace>bracket_dict</replace>
       <replace>]</replace>
       <replace>test</replace>
+      <replace>grid_model</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -184,17 +187,17 @@
         <option value="$PROJECT_DIR$/vis_bracket.py" />
         <option value="$PROJECT_DIR$/vis_bracket2.py" />
         <option value="$PROJECT_DIR$/FacebookBot.py" />
-        <option value="$PROJECT_DIR$/bracket_visualizer.py" />
         <option value="$PROJECT_DIR$/GetTourney.py" />
         <option value="$PROJECT_DIR$/trying_CF.py" />
-        <option value="$PROJECT_DIR$/ImplementQuotients.py" />
         <option value="$PROJECT_DIR$/visualize_ASM_vs_ELO.py" />
+        <option value="$PROJECT_DIR$/bracket_visualizer.py" />
+        <option value="$PROJECT_DIR$/ImplementQuotients.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
-    <option name="width" value="1932" />
+    <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
@@ -213,7 +216,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -230,11 +232,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ESPN_FF_Simulation" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../RandomScripts/NetflixViewing" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -483,10 +486,10 @@
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.ImplementQuotients" />
-        <item index="1" class="java.lang.String" itemvalue="Python.trying_CF" />
+        <item index="1" class="java.lang.String" itemvalue="Python.bracket_visualizer" />
         <item index="2" class="java.lang.String" itemvalue="Python.visualize_ASM_vs_ELO" />
-        <item index="3" class="java.lang.String" itemvalue="Python.FacebookBot" />
-        <item index="4" class="java.lang.String" itemvalue="Python.bracket_visualizer" />
+        <item index="3" class="java.lang.String" itemvalue="Python.trying_CF" />
+        <item index="4" class="java.lang.String" itemvalue="Python.FacebookBot" />
       </list>
     </recent_temporary>
   </component>
@@ -574,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513718463248</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added getRegSche_Train to return the regular season schedule in GetTourney (not sure if working)&#10;&#10;Working on RPI in Implement ( in the works)&#10;&#10;added header param to bracket visualizer">
+      <created>1515006039391</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1515006039391</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -584,13 +594,13 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24695928" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.322691" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32945284" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.327252" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.322691" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39680728" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39680728" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -622,7 +632,8 @@
     <MESSAGE value="vis_bracket2 now does the whole bracket including the finals and the first4 playin games" />
     <MESSAGE value="bracket_visualizer works well. also puts the time and date on the bracket. saving is not working though" />
     <MESSAGE value="changed Seedings in GetTourney to use the regualr tourney seedings and do string splitting to get the seed. Changed the docstring to reflect that.&#10;&#10;Added docstring to bracket_visualizer. made the bracket image file a parameter with a default value. Added a check to make sure the bracket_dict input contains all the necessary bracket slots, raises error if not and lists missing slots. Maybe I should move the whole function into GetTourney?&#10;&#10;added bracket visualization to the main file in Implement Quotient to help with testing. also moved the location of the reg season detailed results to a parameter for init in the class with the old location as the default value" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed Seedings in GetTourney to use the regualr tourney seedings and do string splitting to get the seed. Changed the docstring to reflect that.&#10;&#10;Added docstring to bracket_visualizer. made the bracket image file a parameter with a default value. Added a check to make sure the bracket_dict input contains all the necessary bracket slots, raises error if not and lists missing slots. Maybe I should move the whole function into GetTourney?&#10;&#10;added bracket visualization to the main file in Implement Quotient to help with testing. also moved the location of the reg season detailed results to a parameter for init in the class with the old location as the default value" />
+    <MESSAGE value="added getRegSche_Train to return the regular season schedule in GetTourney (not sure if working)&#10;&#10;Working on RPI in Implement ( in the works)&#10;&#10;added header param to bracket visualizer" />
+    <option name="LAST_COMMIT_MESSAGE" value="added getRegSche_Train to return the regular season schedule in GetTourney (not sure if working)&#10;&#10;Working on RPI in Implement ( in the works)&#10;&#10;added header param to bracket visualizer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -646,16 +657,6 @@
           <url>file://$PROJECT_DIR$/Implement.py</url>
           <line>13</line>
           <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ImplementQuotients.py</url>
-          <line>305</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ImplementQuotients.py</url>
-          <line>140</line>
-          <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/New_Implement.py</url>
@@ -699,7 +700,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bracket_visualizer.py</url>
-          <line>122</line>
+          <line>134</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -708,20 +709,45 @@
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/bracket_visualizer.py</url>
+          <line>74</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ImplementQuotients.py</url>
-          <line>173</line>
-          <option name="timeStamp" value="55" />
+          <line>338</line>
+          <option name="timeStamp" value="68" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="56" />
+      <option name="time" value="69" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>b+a</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>a+1</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>a+b</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>zip(region_m,region_change[j])</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>results[8,:]</expression-string>
         <language-id>Python</language-id>
@@ -747,26 +773,6 @@
         <language-id>Python</language-id>
         <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>cv2.imread('C:/Users/Daniel/Desktop/Datasets/March Madness 2017/bracket.png')</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>cv2.imread('C:/Users/Daniel/Desktop/Datasets/March Madness 2017/reference_sites/NCAA-Tournament-Printable-Bracket-2018.jpg')</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>cv2.imread('reference_sites/NCAA-Tournament-Printable-Bracket-2018.jpg')</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>np.mean(scaled,axis=0)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
@@ -784,7 +790,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -815,7 +820,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -843,7 +847,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -874,7 +877,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -902,7 +904,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -933,7 +934,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -961,7 +961,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -992,7 +991,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1067,7 +1065,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1075,7 +1072,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1092,7 +1088,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1100,22 +1095,21 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="2048" column="5" lean-forward="false" selection-start-line="2048" selection-start-column="5" selection-end-line="2048" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Teams.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="351" column="13" lean-forward="true" selection-start-line="351" selection-start-column="13" selection-end-line="351" selection-end-column="13" />
+        <state relative-caret-position="7371">
+          <caret line="351" column="13" lean-forward="false" selection-start-line="351" selection-start-column="13" selection-end-line="351" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/trying_CF.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="22" column="61" lean-forward="true" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
+        <state relative-caret-position="462">
+          <caret line="22" column="61" lean-forward="false" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
           <folding>
             <element signature="e#33#51#0" expanded="true" />
           </folding>
@@ -1146,37 +1140,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/visualize_ASM_vs_ELO.py">
+    <entry file="file://$PROJECT_DIR$/GetTourney.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bracket_visualizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7479">
-          <caret line="0" column="10" lean-forward="false" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
+        <state relative-caret-position="3255">
+          <caret line="156" column="24" lean-forward="false" selection-start-line="156" selection-start-column="26" selection-end-line="157" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ImplementQuotients.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="174" column="44" lean-forward="true" selection-start-line="174" selection-start-column="44" selection-end-line="174" selection-end-column="44" />
+        <state relative-caret-position="2616">
+          <caret line="354" column="41" lean-forward="false" selection-start-line="354" selection-start-column="41" selection-end-line="354" selection-end-column="41" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GetTourney.py">
+    <entry file="file://$PROJECT_DIR$/visualize_ASM_vs_ELO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-492">
-          <caret line="156" column="24" lean-forward="true" selection-start-line="156" selection-start-column="26" selection-end-line="157" selection-end-column="76" />
+        <state relative-caret-position="210">
+          <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bracket_visualizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7002">
+          <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

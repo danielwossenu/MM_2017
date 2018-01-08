@@ -94,17 +94,66 @@ class FeatureEngineering:
 
 
 
-        #these next 3 nested for loops:
+
+        years = self.data.keys()
+
+        # RPI --------------------------------------------------------------------------------------------
+        RPI_dict = {}
+        for year in years:
+            if year not in RPI_dict:
+                RPI_dict[year] = {}
+            teams = self.data[year].keys()
+            for team in teams:
+                if team not in RPI_dict[year]:
+                    RPI_dict[year][team] = {'WP': None, 'OWP_list': [], 'OOWP_list': []}
+                sche = self.data[year][team]['schedule']
+                # print len(sche)
+                num_wins = 0
+                num_losses = 0
+                for game in sche:
+                    if game[1] == 1:
+                        num_wins += 1
+                    else:
+                        num_losses += 1
+
+                    op_sche = self.data[year][str(game[0])]['schedule']
+                    op_num_wins = 0
+                    op_num_losses = 0
+                    for op_game in op_sche:
+                        if str(op_game[0]) != team:
+                            if op_game[1] == 1:
+                                op_num_wins += 1
+                            else:
+                                op_num_losses += 1
+                    RPI_dict[year][team]['OWP_list'].append(op_num_wins / float(op_num_wins + op_num_losses))
+                RPI_dict[year][team]['WP'] = num_wins / float(num_wins + num_losses)
+                RPI_dict[year][team]['OWP'] = sum(RPI_dict[year][team]['OWP_list']) / len(
+                    RPI_dict[year][team]['OWP_list'])
+
+        for year in years:
+            teams = self.data[year].keys()
+            for team in teams:
+                sche = self.data[year][team]['schedule']
+                for game in sche:
+                    RPI_dict[year][team]['OOWP_list'].append(RPI_dict[year][str(game[0])]['OWP'])
+
+                RPI_dict[year][team]['OOWP'] = sum(RPI_dict[year][team]['OOWP_list']) / len(RPI_dict[year][team]['OOWP_list'])
+                RPI_dict[year][team]['RPI'] = 0.25*RPI_dict[year][team]['WP'] + 0.5*RPI_dict[year][team]['OWP'] + 0.25*RPI_dict[year][team]['OOWP']
+
+        # print team
+        # RPI_dict[year]['win_perc'] =
+
+
+        # these next 3 nested for loops:
         # 1st(outer loop) goes through each year
         # 2nd(1st inner loop)for each team, calcs their average pts/game and pts against/game and saves in "data" for each team under "season"
         # 3rd(2nd inner loop) goes through teams again and calcs offensive power and defensive suppression for each team and saves in "data" for each team under "season"
-        #Offensive power(OP): if you're oppenents collectively on average give up 100pts/ game and you're averaging 103, you have 1.3 offensive power
-        #Defensive Suppresion(DS): if you're on average give up 75pts/ game and your opponents collectively on average score 100pts/game, you have .75 defensive suppression
-        #OP: higher is better. if >1 then you are scoring more than you're oppenents usually allow
-        #DS: lower is better. if >1 then you are allowing your oppenents to score more on you than they usually do
+        # Offensive power(OP): if you're oppenents collectively on average give up 100pts/ game and you're averaging 103, you have 1.3 offensive power
+        # Defensive Suppresion(DS): if you're on average give up 75pts/ game and your opponents collectively on average score 100pts/game, you have .75 defensive suppression
+        # OP: higher is better. if >1 then you are scoring more than you're oppenents usually allow
+        # DS: lower is better. if >1 then you are allowing your oppenents to score more on you than they usually do
         # Season will be a list of [avg points/gm, avg points allowed/gm, OP, DS, ELO]
         # OP and DS calcs look to be weird. check them.
-        years = self.data.keys()
         for year in years:
             teams = self.data[year].keys()
             for team in teams:
@@ -143,48 +192,8 @@ class FeatureEngineering:
                 # self.data[year][team]['season'].append(self.data[year][team]['season'][0] / (oppdeftot / float(len(sche))))
                 # self.data[year][team]['season'].append(self.data[year][team]['season'][1]/(oppofftot / float(len(sche))))
                 # self.data[year][team]['season'].append(reg_season_elo)
-                RPI_dict = {}
-                for year in years:
-                    if year not in RPI_dict:
-                        RPI_dict[year] = {}
-                    teams = self.data[year].keys()
-                    for team in teams:
-                        if team not in RPI_dict[year]:
-                            RPI_dict[year][team] = {'WP':None,'OWP_list':[],'OOWP_list':[]}
-                        sche = self.data[year][team]['schedule']
-                        # print len(sche)
-                        num_wins = 0
-                        num_losses = 0
-                        for game in sche:
-                            if game[1] == 1:
-                                num_wins += 1
-                            else:
-                                num_losses += 1
 
-                            op_sche = self.data[year][str(game[0])]['schedule']
-                            op_num_wins = 0
-                            op_num_losses = 0
-                            for op_game in op_sche:
-                                if str(op_game[0]) != team:
-                                    if op_game[1] == 1:
-                                        op_num_wins += 1
-                                    else:
-                                        op_num_losses += 1
-                            RPI_dict[year][team]['OWP_list'].append(op_num_wins/float(op_num_wins+op_num_losses))
-                        RPI_dict[year][team]['WP'] = num_wins / float(num_wins + num_losses)
-                        RPI_dict[year][team]['OWP'] = sum(RPI_dict[year][team]['OWP_list'])/len(RPI_dict[year][team]['OWP_list'])
 
-                for year in years:
-                    teams = self.data[year].keys()
-                    for team in teams:
-                        sche = self.data[year][team]['schedule']
-                        for game in sche:
-                            RPI_dict[year][team]['OOWP_list'].append(RPI_dict[year][game[0]]['OWP'])
-
-                RPI_dict[year][team]['OOWP'] = sum(RPI_dict[year][team]['OOWP_list'])/len(RPI_dict[year][team]['OOWP_list'])
-
-                        # print team
-                        # RPI_dict[year]['win_perc'] =
 
 
 
@@ -194,6 +203,7 @@ class FeatureEngineering:
                 self.data[year][team]['season_stats']['DS'] = self.data[year][team]['season_stats']['avg_pts_allowed']/(oppofftot / float(len(sche)))
                 self.data[year][team]['season_stats']['ASM'] = self.data[year][team]['season_stats']['OQ'] + self.data[year][team]['season_stats']['OQ']
                 self.data[year][team]['season_stats']['ELO'] = reg_season_elo
+                self.data[year][team]['season_stats']['RPI'] = RPI_dict[year][team]['RPI']
 
 
     def GetTrainingData(self,trainyearstart, trainyearend):
@@ -225,6 +235,8 @@ class FeatureEngineering:
             ELO_team2 = self.data[trainyear][team2]['season_stats']['ELO']
             ASM_team1 = self.data[trainyear][team1]['season_stats']['ASM']
             ASM_team2 = self.data[trainyear][team2]['season_stats']['ASM']
+            RPI_team1 = self.data[trainyear][team1]['season_stats']['RPI']
+            RPI_team2 = self.data[trainyear][team2]['season_stats']['RPI']
             seed_team1 = team_seeds[trainyear][team1]
             seed_team2 = team_seeds[trainyear][team2]
             PtsPerGame_team1 = self.data[trainyear][team1]['season_stats']['avg_pts_scored']
@@ -232,7 +244,8 @@ class FeatureEngineering:
             # train_data.append([(OP_team1+DS_team1)-(OP_team2+DS_team2), ELO_team1 - Elo_team2])
             # train_data.append([PtsPerGame_team1 * (OP_team1 + (DS_team2 - 1)) - PtsPerGame_team2 * (OP_team2 + (DS_team1 - 1)),ELO_team1 - ELO_team2])
             # train_data.append([ASM_team1-ASM_team2,ELO_team1 - ELO_team2])
-            train_data.append([int(seed_team1)-int(seed_team2),ELO_team1 - ELO_team2,ASM_team1-ASM_team2])
+            # train_data.append([int(seed_team1)-int(seed_team2),ELO_team1 - ELO_team2,ASM_team1-ASM_team2, RPI_team1-RPI_team2])
+            train_data.append([ELO_team1 - ELO_team2,ASM_team1-ASM_team2, RPI_team1-RPI_team2])
 
 
             # train_data.append([OP_team1, DS_team1, OP_team2, DS_team2, ELO_team1, ELO_team2])
@@ -262,6 +275,8 @@ class FeatureEngineering:
             ELO_team2 = self.data[trainyear][team2]['season_stats']['ELO']
             ASM_team1 = self.data[trainyear][team1]['season_stats']['ASM']
             ASM_team2 = self.data[trainyear][team2]['season_stats']['ASM']
+            RPI_team1 = self.data[trainyear][team1]['season_stats']['RPI']
+            RPI_team2 = self.data[trainyear][team2]['season_stats']['RPI']
             seed_team1 = team_seeds[trainyear][team1]
             seed_team2 = team_seeds[trainyear][team2]
             PtsPerGame_team1 = self.data[trainyear][team1]['season_stats']['avg_pts_scored']
@@ -269,7 +284,8 @@ class FeatureEngineering:
             # train_data.append([(OP_team1+DS_team1)-(OP_team2+DS_team2), ELO_team1 - Elo_team2])
             # train_data.append([PtsPerGame_team1 * (OP_team1 + (DS_team2 - 1)) - PtsPerGame_team2 * (OP_team2 + (DS_team1 - 1)),ELO_team1 - ELO_team2])
             # train_data.append([ASM_team1-ASM_team2,ELO_team1 - ELO_team2])
-            train_data.append([int(seed_team1) - int(seed_team2), ELO_team1 - ELO_team2, ASM_team1 - ASM_team2])
+            # train_data.append([int(seed_team1) - int(seed_team2), ELO_team1 - ELO_team2, ASM_team1 - ASM_team2 , RPI_team1-RPI_team2])
+            train_data.append([ELO_team1 - ELO_team2, ASM_team1 - ASM_team2 , RPI_team1-RPI_team2])
 
 
 
@@ -286,8 +302,8 @@ def Train(x,y):
     model3 = DecisionTreeClassifier()
     model4 = SVC(probability=True)
     model5 = AdaBoostClassifier()
-    vmodel = VotingClassifier(estimators=[('NN', model1),  ('DT', model3), ('ADA', model5)], voting='soft')
-    vmodel = model2
+    # vmodel = VotingClassifier(estimators=[('NN', model1),  ('DT', model3), ('ADA', model5)], voting='soft')
+    vmodel = model5
     vmodel.fit(x,y)
     return vmodel
 
@@ -299,12 +315,26 @@ def Test(model, test_x, prob=False):
         prediction = model.predict_proba(test_x)
     return prediction
 
+def grid_search_model(grid_model,parameters):
+    for x in range(2003,2015):
+        max_n = min((2016-x)*64*2/5,100)
+        train_x, train_y = FE.GetTrainingData(x, 2016)
+        parameters = {'n_neighbors': range(1, max_n), 'weights': ['uniform', 'distance'], 'p':[1,2]}
+        grid_model = model_selection.GridSearchCV(grid_model, parameters, n_jobs=-1, cv=5)
+        grid_model.fit(train_x,train_y)
+        print x
+        print grid_model.best_score_
+        grid_model = grid_model.best_estimator_
+        print grid_model
+
 
 if __name__ == '__main__':
     FE = FeatureEngineering()
     FE.create_features()
-    train_x, train_y = FE.GetTrainingData(2015,2016)
+    train_x, train_y = FE.GetTrainingData(2014,2016)
     test_x, test_y = FE.GetTestData(2016)
+    scaler = StandardScaler()
+    train_x = scaler.fit_transform(train_x)
     dt = DecisionTreeClassifier()
     dt.fit(train_x,train_y)
     print 'features'
@@ -314,12 +344,16 @@ if __name__ == '__main__':
     #     train_x, train_y = FE.GetTrainingData(x, 2016)
     #     KNN = KNeighborsClassifier(n_neighbors=40,weights='distance', p=1)
     #     parameters = {'n_neighbors': range(1, max_n), 'weights': ['uniform', 'distance'], 'p':[1,2]}
-    #     KNN = model_selection.GridSearchCV(KNN, parameters, n_jobs=1, cv=5)
+    #     KNN = model_selection.GridSearchCV(KNN, parameters, n_jobs=-1, cv=5)
     #     KNN.fit(train_x,train_y)
     #     print x
     #     print KNN.best_score_
     #     KNN = KNN.best_estimator_
     #     print KNN
+
+    # grid_search_model(MLPClassifier(),{'hidden_layer_sizes': zip(range(10,100, 10),range(10, 100, 10))})
+    grid_search_model(AdaBoostClassifier(),{'n_estimators': range(5,50)})
+
 
     model = Train(train_x,train_y)
     # print Test(model, test_x, prob=True)
@@ -334,6 +368,7 @@ if __name__ == '__main__':
             team1 = seeds[str(year)][game[1]]
             team2 = seeds[str(year)][game[2]]
             game_test = FE.GetTestData(year,labels=False,TSpara=[[team1, team2]])
+            game_test = scaler.transform(game_test)
             chances = Test(model,game_test,prob=True)
             if chances[0][0]> chances[0][1]:
                 winner = [team1]

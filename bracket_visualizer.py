@@ -14,8 +14,8 @@ def visualize_bracket(bracket_dict, save=False, visualize=True,header=True,brack
 
     # [x,y,y_step size, number of steps]
     R1W = [85,49,37,16]
-    R2W = [230,65,74,8]
-    R3W = [360,100,148,4]
+    R2W = [230,65,74,[1,8,5,4,6,3,7,2]]
+    R3W = [360,100,148,[1,4,3,2]]
     R4W = [485,180,290,2]
     R5W = [610,320,0,1]
 
@@ -54,21 +54,33 @@ def visualize_bracket(bracket_dict, save=False, visualize=True,header=True,brack
     for i,this_round in enumerate(rounds):
         for j,mult in enumerate(region_multiply):
             region_m = [a*b for a,b in zip(this_round,mult)]
-            region_mc = [a+b for a,b in zip(region_m,region_change[j])]
+            # region_mc = [a+b for a,b in zip(region_m,region_change[j])]
+
+            region_mc = []
+            for a, b in zip(region_m, region_change[j]):
+                if type(a) is list:
+                    region_mc.append(a)
+                else:
+                    region_mc.append(a+b)
+
 
             region = region_mc
             start_y = region[1]
 
-            for k in range(0,region[3]):
+            if type(region[3]) is list:
+                seeding_range = region[3]
+            else:
+                seeding_range = range(1,region[3]+1)
+            for k in seeding_range:
                 if rounds_string[i] == '':
-                    seed = first_round[k]
+                    seed = first_round[k-1]
                     if seed < 10:
                         seed = '0'+str(seed)
                     else:
                         seed = str(seed)
 
                 else:
-                    seed = str(k+1)
+                    seed = str(k)
                 seed = rounds_string[i]+regions_string[j]+seed
                 bracket_text_loc[seed] = (region[0],start_y)
                 text_for_pic = teams[bracket_dict[seed]]
